@@ -99,7 +99,7 @@ protected:
     static long offset;
 };
 
-#endif // _RTCLIB_H_
+
 
 // RTC based on the DS3232 chip connected via I2C and the Wire library
 enum Ds3232SqwPinMode { OFF = 0x00, ON = 0x04};
@@ -117,3 +117,5 @@ public:
     void writenvram(uint8_t address, uint8_t data);
     void writenvram(uint8_t address, uint8_t* buf, uint8_t size);
 };
+
+#endif // _RTCLIB_H_
