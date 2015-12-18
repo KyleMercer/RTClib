@@ -100,3 +100,20 @@ protected:
 };
 
 #endif // _RTCLIB_H_
+
+// RTC based on the DS3232 chip connected via I2C and the Wire library
+enum Ds3232SqwPinMode { OFF = 0x00, ON = 0x04};
+
+class RTC_DS3232 {
+public:
+    boolean begin(void);
+    static void adjust(const DateTime& dt);
+    uint8_t isrunning(void);
+    static DateTime now();
+    static Ds3232SqwPinMode readSqwPinMode();
+    static void writeSqwPinMode(Ds3232SqwPinMode mode);
+    uint8_t readnvram(uint8_t address);
+    void readnvram(uint8_t* buf, uint8_t size, uint8_t address);
+    void writenvram(uint8_t address, uint8_t data);
+    void writenvram(uint8_t address, uint8_t* buf, uint8_t size);
+};
